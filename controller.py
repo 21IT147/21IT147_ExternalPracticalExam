@@ -15,7 +15,13 @@ class Controller:
         """Evaluate expressions."""
         result = self._evaluate(expression=self._view.getDisplayText())
         self._view.setDisplayText(result)
-
+        
+    def _calculate_b_B(self):
+        
+        data = self._view.getDisplayText()
+        result = data * 8
+        self._view.setDisplayText(data)
+        
     def _buildExpression(self, sub_exp):
         """Build expression."""
         if self._view.getDisplayText() == ERROR_MSG:
@@ -31,5 +37,11 @@ class Controller:
                 btn.clicked.connect(partial(self._buildExpression, btnText))
 
         self._view.buttons['='].clicked.connect(self._calculateResult)
+        # self._view.buttons['b-B'].clicked.connect(self._calculate_b_B)
+        # self._view.buttons['B-b'].clicked.connect(self._calculateResult)
+        # self._view.buttons['B-KB'].clicked.connect(self._calculateResult)
+        # self._view.buttons['KB-B'].clicked.connect(self._calculateResult)
+        # self._view.buttons['KB-MB'].clicked.connect(self._calculateResult)
+        # self._view.buttons['MB-KB'].clicked.connect(self._calculateResult)
         self._view.display.returnPressed.connect(self._calculateResult)
         self._view.buttons['C'].clicked.connect(self._view.clearDisplay)

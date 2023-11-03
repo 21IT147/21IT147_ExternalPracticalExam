@@ -69,6 +69,12 @@ class GUI(QMainWindow):
                    '.': (3, 2),
                    '+': (3, 3),
                    '=': (3, 4),
+                   'b-B':(0,5),
+                   '/8':(1,5),
+                   '*1000':(2,5),
+                   '/1000':(3,5),
+                   '*1000':(4,5),
+                   '/1000':(5,5),
                   }
         # Create the buttons and add them to the grid layout
         for btnText, pos in buttons.items():
